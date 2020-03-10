@@ -11,7 +11,7 @@ class Node{
   Node(int*);
   ~Node();
   int* getValue();
-  void setValue(int*);
+  void setValue(int);
   void setRight(Node*);
   void setLeft(Node*);
   Node* getRight();

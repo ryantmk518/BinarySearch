@@ -15,8 +15,9 @@ Node::~Node() {
   value = NULL;
 }
 
-void Node::setValue(int* newvalue) {
-  value = newvalue;
+void Node::setValue(int newvalue) {
+  int* nvalue = &newvalue;
+  value = nvalue;
 }
 
 int* Node::getValue() {
