@@ -8,16 +8,16 @@ using namespace std;
 
 class Node{
  public:
-  Node(int*);
+  Node(int);
   ~Node();
-  int* getValue();
+  int getValue();
   void setValue(int);
   void setRight(Node*);
   void setLeft(Node*);
   Node* getRight();
   Node* getLeft();
  private:
-  int* value;
+  int value;
   Node* right;
   Node* left;
 };

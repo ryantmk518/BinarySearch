@@ -5,7 +5,7 @@ using namespace std;
 
 //Node class
 
-Node::Node(int* newvalue) {
+Node::Node(int newvalue) {
   value = newvalue;
   right = NULL;
   left = NULL;
@@ -16,11 +16,10 @@ Node::~Node() {
 }
 
 void Node::setValue(int newvalue) {
-  int* nvalue = &newvalue;
-  value = nvalue;
+  value = newvalue;
 }
 
-int* Node::getValue() {
+int Node::getValue() {
   return value;
 }
 
