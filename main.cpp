@@ -28,7 +28,8 @@ int main(){
         token = strtok(NULL, " ");
         ++a;
       }
-      if (head == NULL) {
+      if (head ->getValue()== NULL) {
+        cout << "Head is null" << endl;
         add(head, array[0], 2);
         for(int i = 1; i < a; i++) {
           add(head, array[i], 0);
@@ -75,26 +76,24 @@ int main(){
   }
 }
 
-void print(Node* head, int space) {
-  if (head == NULL) {
+void print(Node* head, int space){
+  if (head == NULL){
     return;
   }
   space += 5;
-  if (head->getRight()!=NULL) {
-    print(head->getRight(), space);
-  }
+  print(head->getRight(), space);
   cout << "\n";
-  for (int i = 5; i < space; i++) {
+  for (int i = 5; i < space; i++){
     cout << " ";
   }
   cout << head->getValue() << endl;
-  if (head->getRight() != NULL) {
-    print(head->getLeft(), space);
-  }
+  print(head->getLeft(), space);
 }
+
 void add(Node* parent, int value, int first) {
   int count = 0;
   if (first == 2) {
+    cout << "Set head" << endl;
     parent -> setValue(value);
   }
   else {
