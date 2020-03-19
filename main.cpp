@@ -11,6 +11,7 @@ void add(Node* parent, int value, int side);
 void print(Node* head, int space);
 void search(Node* head, int num);
 void remove(Node* head, int num);
+void twoChild(Node* head, int num);
 
 int main(){
   bool quit = false;
@@ -88,6 +89,7 @@ int main(){
       cout << "\n" << endl;
       int num = atoi(input);
       remove(head, num);
+      print(head, 0);
     }
     else if (strcmp(input, "Quit") == 0) {
       quit = true;
@@ -97,21 +99,61 @@ int main(){
 
 void remove(Node* head, int num) {
   if (head == NULL) {
+    cout << "Head is null" << endl;
     return;
   }
   else if (head->getValue() < num) {
-    if (head->getRight()->getValue() = num && head->getRight()->getRight() != NULL && head->getRight()->getLeft() != NULL) {
-      twoChild(head, 0);
-    }
-    else if (head->getRight()->getValue() = num) {
-      if (head->getRight())
+    if (head->getRight() -> getValue() == num) {
+      if (head->getRight()->getRight() == NULL && head->getRight()->getLeft() == NULL) {
+        cout << "No child" << endl;
+        head->setRight(NULL);
+      }
+      else if (head->getRight()->getLeft() != NULL && head->getRight()->getRight() == NULL) {
+        cout << "One child" << endl;
+        Node* newNode = new Node(head->getRight()->getLeft()->getValue());
+        head->setRight(newNode);
+      }
+      else if (head->getRight()->getRight() != NULL && head->getRight()->getLeft() == NULL) {
+        cout << "One child" << endl;
+        Node* newNode = new Node(head->getRight()->getRight()->getValue());
+        head->setRight(newNode);
+      }
+      else if (head->getRight() -> getRight() != NULL && head->getRight()->getLeft() != NULL) {
+        cout << "Two child" << endl;
+        
+      }
     }
     else {
       remove(head->getRight(), num);
     }
   }
-  else if (head->getValue > num) {
-    remove (head->getLeft(), num);
+  else if (head->getValue() > num) {
+    if (head->getLeft() -> getValue() == num) {
+      if (head->getLeft()->getRight() == NULL && head->getLeft()->getLeft() == NULL) {
+        cout << "No child" << endl;
+        head->setLeft(NULL);
+      }
+      else if (head->getLeft()->getLeft() != NULL && head->getLeft()->getRight() == NULL) {
+        cout << "One child" << endl;
+        Node* newNode = new Node(head->getLeft()->getLeft()->getValue());
+        head->setLeft(newNode);
+      }
+      else if (head->getLeft()->getRight() != NULL && head->getLeft()->getLeft() == NULL) {
+        cout << "One child" << endl;
+        Node* newNode = new Node(head->getLeft()->getRight()->getValue());
+        head->setLeft(newNode);
+      }
+      else if (head->getLeft() -> getRight() != NULL && head->getLeft()->getLeft() != NULL) {
+        cout << "Two child" << endl;
+
+      }
+    }
+    else {
+      remove(head->getLeft(), num);
+    }
+  }
+  else if (head->getValue() == num) {
+    cout << "Head is num" << endl;
   }
 }
 
