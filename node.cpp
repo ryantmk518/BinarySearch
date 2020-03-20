@@ -5,36 +5,36 @@ using namespace std;
 
 //Node class
 
-Node::Node(int newvalue) {
+Node::Node(int newvalue) { //Create node
   value = newvalue;
   right = NULL;
   left = NULL;
 }
 
-Node::~Node() {
+Node::~Node() { //Delete node
   value = NULL;
 }
 
-void Node::setValue(int newvalue) {
+void Node::setValue(int newvalue) { //Set value
   value = newvalue;
 }
 
-int Node::getValue() {
+int Node::getValue() { //Returns value
   return value;
 }
 
-Node* Node::getRight() {
+Node* Node::getRight() { //Right node
   return right;
 }
 
-Node* Node::getLeft() {
+Node* Node::getLeft() { //Left node
   return left;
 }
 
-void Node::setRight(Node* newRight) {
+void Node::setRight(Node* newRight) { //Set right node
   right = newRight;
 }
 
-void Node::setLeft(Node* newLeft) {
+void Node::setLeft(Node* newLeft) { //Set left node
   left = newLeft;
 }
